@@ -12,6 +12,6 @@
 
     "jsList" : [
         "src/Resources.js",
-        "src/Main.js"
+        "src/App.js"
     ]
 }
