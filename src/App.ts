@@ -1,10 +1,3 @@
-/**
- * Created by micha on 16.10.2015.
- */
-///**
-// * Created by micha on 14.10.2015.
-// */
-
 /// <reference path="../types/cocos2d-3.0.d.ts"/>
 /// <reference path="Resources.ts"/>
 
@@ -27,7 +20,7 @@ class HelloWorldLayer extends cc.Layer
         var offset = 0;
         setInterval(() =>{
             var helloLabel = new cc.LabelTTF();
-            helloLabel.setString("Oj tak tak mhmmm aha tak");
+            helloLabel.setString("321... YEAH mhm!!!");
 
             // position the label on the center of the screen
             helloLabel.x = size.width / 2 + offset;
@@ -37,20 +30,8 @@ class HelloWorldLayer extends cc.Layer
 
             sss /= 2;
             offset += 50;
-        }, 4000)
+        }, 4000);
 
-        /////////////////////////////
-        //// 3. add your codes below...
-        //// add a label shows "Hello World"
-        //// create and initialize a label
-        //var helloLabel = new cc.LabelTTF("Oj tak tak mhmmm aha tak!!!", "Arial", 38);
-        //// position the label on the center of the screen
-        //helloLabel.x = size.width / 2;
-        //helloLabel.y = size.height / 2 + 200;
-        //// add the label as a child to this layer
-        //this.addChild(helloLabel, 5);
-
-        // add "HelloWorld" splash screen"
         this.sprite = new cc.Sprite();
         this.sprite.initWithFile(Resources.MainMenu_jpg);
         this.sprite.attr({
@@ -82,20 +63,28 @@ class HelloWorldScene extends cc.Scene
 
 class Game
 {
-    director : any;//cc.Director;
-    view : any;//cc.GLView;
-    loaderScene : any;//cc.LoaderScene;
+    director : any;
+    view : any;
+    loaderScene : any;
     game : any;
+    sys : any;
 
-    constructor(director : cc.Director, view : cc.GLView, loaderScene : cc.LoaderScene, game : any)
+
+    constructor(director : cc.Director, view : cc.GLView, loaderScene : cc.LoaderScene, sys : any, game : any)
     {
         this.director = director;
         this.loaderScene = loaderScene;
         this.view = view;
         this.game = game;
+        this.sys = sys;
+
+        this.onStart();
     }
 
-    Start = () => {
+    onStart = () => {
+        if(!this.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
+            document.body.removeChild(document.getElementById("cocosLoading"));
+
         // Pass true to enable retina display, disabled by default to improve performance
         this.view.enableRetina(false);
         // Adjust viewport meta
@@ -105,8 +94,10 @@ class Game
         // The game will be resized when browser size change
         this.view.resizeWithBrowserSize(true);
         //load resources
-        this.loaderScene.preload(g_resources, function () {
-            this.director.runScene(new HelloWorldScene());
-        }, this);
+
+        var that = this;
+        this.loaderScene.preload(g_resources, () => {
+            that.director.runScene(new HelloWorldScene());
+        }, this.game);
     }
 }
