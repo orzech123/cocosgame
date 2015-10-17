@@ -959,7 +959,7 @@ declare module cc {
          * </p>
          * @param {cc.Scene} scene
          */
-        runWithScene(scene:Scene);
+        runScene(scene:Scene);
 
         /**
          * Get the FPS value
