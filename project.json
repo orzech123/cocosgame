@@ -12,6 +12,8 @@
 
     "jsList" : [
         "src/Resources.js",
-        "src/App.js"
+        "src/App.js",
+        "src/HelloWorldLayer.js",
+        "src/HelloWorldScene.js"
     ]
 }
