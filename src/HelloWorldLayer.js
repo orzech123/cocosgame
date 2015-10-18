@@ -40,7 +40,7 @@ var HelloWorldLayer = (function (_super) {
         var offset = 0;
         setInterval(function () {
             var helloLabel = new cc.LabelTTF();
-            helloLabel.setString("eh 321... YEAH mhm!!!");
+            helloLabel.setString("haha rara eh 321... YEAH mhm!!!");
 
             // position the label on the center of the screen
             helloLabel.x = size.width / 2 + offset;

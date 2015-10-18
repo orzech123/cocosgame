@@ -1,6 +1,6 @@
 /// <reference path="../types/cocos2d-3.0.d.ts"/>
 /// <reference path="Resources.ts"/>
-/// <reference path="HelloWorldScene.ts"/>
+/// <reference path="MenuScene.ts"/>
 
 class Game
 {
@@ -38,7 +38,7 @@ class Game
 
         var that = this;
         this.loaderScene.preload(g_resources, () => {
-            that.director.runScene(new HelloWorldScene());
+            that.director.runScene(new MenuScene());
         }, this.game);
     }
 }

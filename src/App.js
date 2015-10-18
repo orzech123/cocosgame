@@ -1,6 +1,6 @@
 /// <reference path="../types/cocos2d-3.0.d.ts"/>
 /// <reference path="Resources.ts"/>
-/// <reference path="HelloWorldScene.ts"/>
+/// <reference path="MenuScene.ts"/>
 var Game = (function () {
     function Game(director, view, loaderScene, sys, game) {
         var _this = this;
@@ -23,7 +23,7 @@ var Game = (function () {
             //load resources
             var that = _this;
             _this.loaderScene.preload(g_resources, function () {
-                that.director.runScene(new HelloWorldScene());
+                that.director.runScene(new MenuScene());
             }, _this.game);
         };
         this.director = director;
