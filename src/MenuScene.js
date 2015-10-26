@@ -34,8 +34,6 @@ var MenuScene = (function (_super) {
             _super.prototype.onEnter.call(_this);
 
             var layer = new MenuLayer();
-
-            //layer.init();
             _this.addChild(layer);
         };
 

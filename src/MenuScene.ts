@@ -13,7 +13,6 @@ class MenuScene extends cc.Scene {
         super.onEnter();
 
         var layer = new MenuLayer();
-        //layer.init();
         this.addChild(layer);
     }
 }

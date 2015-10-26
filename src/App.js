@@ -23,7 +23,8 @@ var Game = (function () {
             //load resources
             var that = _this;
             _this.loaderScene.preload(g_resources, function () {
-                that.director.runScene(new MenuScene());
+                var menuScene = new MenuScene();
+                that.director.runScene(menuScene);
             }, _this.game);
         };
         this.director = director;

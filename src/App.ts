@@ -38,7 +38,8 @@ class Game
 
         var that = this;
         this.loaderScene.preload(g_resources, () => {
-            that.director.runScene(new MenuScene());
+            var menuScene = new MenuScene();
+            that.director.runScene(menuScene);
         }, this.game);
     }
 }
