@@ -29,6 +29,24 @@ class MenuLayer extends cc.Layer
         menu.setAnchorPoint(0,0);
         menu.setPosition(0,0);
         this.addChild(menu);
+
+        var aaa = cc.LabelTTF.create("Xxxx");
+        aaa.setAnchorPoint(0,0);
+        aaa.setPosition(250,0);
+        this.addChild(aaa);
+
+        if(cc.sys.capabilities.hasOwnProperty("accelerometer"))
+        {
+            //this.setAccelerometerEnabled(true);
+            //this.setAccelerometerInterval(1/10);
+
+            cc.eventManager.addListener(cc.EventListener.create({
+                event: cc.EventAcceleration.ACCELERATION,
+                callback: (accelEvent, event) => {
+
+                }
+            }), this);
+        }
     }
 
     play = () => {

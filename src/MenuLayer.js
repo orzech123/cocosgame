@@ -56,6 +56,29 @@ var MenuLayer = (function (_super) {
         menu.setAnchorPoint(0, 0);
         menu.setPosition(0, 0);
         this.addChild(menu);
+
+
+        var aaa = cc.LabelTTF.create("");
+        aaa.setAnchorPoint(0, 0);
+        aaa.setPosition(250, 0);
+        this.addChild(aaa);
+
+        //setInterval(function (){
+        //    aaa.setString("asdasdasd");
+        //}, 2000);
+
+        if (cc.sys.capabilities.hasOwnProperty("accelerometer")) {
+            cc.inputManager.setAccelerometerEnabled(true);
+            cc.inputManager.setAccelerometerInterval(1/10);
+
+            cc.eventManager.addListener({
+                event: cc.EventListener.ACCELERATION,
+                callback: function (accelEvent, event) {
+                    var xr = "x: " + accelEvent.x + " y: " + accelEvent.y + " z: " + accelEvent.z;
+                    aaa.setString(xr);
+                }
+            }, this);
+        }
     }
     return MenuLayer;
 })(cc.Layer);
